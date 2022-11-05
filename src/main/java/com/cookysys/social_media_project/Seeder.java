@@ -1,0 +1,310 @@
+package com.cookysys.social_media_project;
+
+import java.util.Arrays;
+import java.util.List;
+
+import com.cookysys.social_media_project.embeddables.CredentialsEmbeddable;
+import com.cookysys.social_media_project.embeddables.ProfileEmbeddable;
+import com.cookysys.social_media_project.entities.Hashtag;
+import com.cookysys.social_media_project.entities.Tweet;
+import com.cookysys.social_media_project.entities.User;
+import com.cookysys.social_media_project.repositories.HashtagRepository;
+import com.cookysys.social_media_project.repositories.TweetRepository;
+import com.cookysys.social_media_project.repositories.UserRepository;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
+public class Seeder implements CommandLineRunner {
+
+	public final HashtagRepository hashtagRepository;
+	public final TweetRepository tweetRepository;
+	public final UserRepository userRepository;
+
+// --- User 1 ---
+	// Credentials
+	public void run(String... args) throws Exception {
+	
+//    CredentialsEmbeddable user1Cred = new CredentialsEmbeddable();
+//    user1Cred.setUsername("therealmc");
+//    user1Cred.setPassword("Password");
+//
+//    User user1 = new User();
+//    user1.setCredentials(user1Cred);
+//
+//    // Profile
+//    ProfileEmbeddable user1Pro = new ProfileEmbeddable();
+//    user1Pro.setFirstName("Master");
+//    user1Pro.setLastName("Chief");
+//    user1Pro.setEmail("sierra117@email.com");
+//    user1Pro.setPhoneNumber("123-456-7890");
+//    user1.setProfile(user1Pro);
+//
+//    // Deleted
+//    user1.setDeleted(false);
+//
+//    // --- User 2 ---
+//    // Credentials
+//    CredentialsEmbeddable user2Cred = new CredentialsEmbeddable();
+//    user2Cred.setUsername("mario");
+//    user2Cred.setPassword("password");
+//
+//    User user2 = new User();
+//    user2.setCredentials(user2Cred);
+//
+//    // Profile
+//    ProfileEmbeddable user2Pro = new ProfileEmbeddable();
+//    user2Pro.setFirstName("Mario");
+//    user2Pro.setLastName("Mario");
+//    user2Pro.setEmail("mario@email.com");
+//    user2Pro.setPhoneNumber("234-567-8901");
+//    user2.setProfile(user2Pro);
+//    // Deleted
+//    user2.setDeleted(false);
+//
+//    // --- User 3 ---
+//    CredentialsEmbeddable user3Cred = new CredentialsEmbeddable();
+//    // Credentials
+//    user3Cred.setUsername("Luigi");
+//    user3Cred.setPassword("Password");
+//
+//    User user3 = new User();
+//    user3.setCredentials(user3Cred);
+//
+//    // Profile
+//    ProfileEmbeddable user3Pro = new ProfileEmbeddable();
+//    user3Pro.setFirstName("Luigi");
+//    user3Pro.setLastName("Mario");
+//    user3Pro.setEmail("luigi@email.com");
+//    user3Pro.setPhoneNumber("345-678-9012");
+//    user3.setProfile(user3Pro);
+//    // Deleted
+//    user3.setDeleted(false);
+//
+//    // --- User 4 ---
+//    // Credentials
+//    CredentialsEmbeddable user4Cred = new CredentialsEmbeddable();
+//    user4Cred.setUsername("Nathan");
+//    user4Cred.setPassword("Password");
+//
+//    User user4 = new User();
+//    user4.setCredentials(user4Cred);
+//
+//    // Profile
+//    ProfileEmbeddable user4Pro = new ProfileEmbeddable();
+//    user4Pro.setFirstName("Nathan");
+//    user4Pro.setLastName("Drake");
+//    user4Pro.setEmail("nathan@email.com");
+//    user4Pro.setPhoneNumber("456-789-0023");
+//    user4.setProfile(user4Pro);
+//    // Deleted
+//    user4.setDeleted(false);
+//
+//    // --- User 5 ---
+//    // Credentials
+//    CredentialsEmbeddable user5Cred = new CredentialsEmbeddable();
+//    user5Cred.setUsername("Tarnished");
+//    user5Cred.setPassword("Password");
+//
+//    User user5 = new User();
+//    user5.setCredentials(user5Cred);
+//
+//    // Profile
+//    ProfileEmbeddable user5Pro = new ProfileEmbeddable();
+//    user5Pro.setFirstName("The");
+//    user5Pro.setLastName("Tarnished");
+//    user5Pro.setEmail("willibecometheeldenlord@email.com");
+//    user5Pro.setPhoneNumber("567-890-0034");
+//    user5.setProfile(user5Pro);
+//    // Deleted
+//    user5.setDeleted(false);
+//
+//    // --- User 6 ---
+//    // Credentials
+//    CredentialsEmbeddable deletedUserCred = new CredentialsEmbeddable();
+//    deletedUserCred.setUsername("DeletedUser");
+//    deletedUserCred.setPassword("Password");
+//
+//    User deletedUser = new User();
+//    deletedUser.setCredentials(deletedUserCred);
+//
+//    // Profile
+//    ProfileEmbeddable deletedUserPro = new ProfileEmbeddable();
+//    deletedUserPro.setFirstName("Deleted");
+//    deletedUserPro.setLastName("User");
+//    deletedUserPro.setEmail("Deleted@User.com");
+//    deletedUserPro.setPhoneNumber("NULL");
+//    deletedUser.setProfile(deletedUserPro);
+//    // Deleted
+//    deletedUser.setDeleted(true);
+//    userRepository.saveAllAndFlush(Arrays.asList(user1, user2, user3, user4, user5, deletedUser));
+//
+//    // ----- HASHTAGS -----
+//
+//    Hashtag hashtag1 = new Hashtag();
+//    hashtag1.setLabel("#eldenlord");
+//
+//    Hashtag hashtag2 = new Hashtag();
+//    hashtag2.setLabel("#mario");
+//
+//    Hashtag hashtag3 = new Hashtag();
+//    hashtag3.setLabel("#luigi");
+//
+//    Hashtag hashtag4 = new Hashtag();
+//    hashtag4.setLabel("#whereiscortana");
+//
+//    hashtagRepository.saveAllAndFlush(Arrays.asList(hashtag1, hashtag2, hashtag3, hashtag4));
+//
+////		// ----- TWEETS -----
+//
+//		// --- Start Tweet 1 ---
+//		Tweet tweet1 = new Tweet();
+//		tweet1.setAuthor(user1);
+//		tweet1.setDeleted(false);
+//		tweet1.setContent("This is some content 1");
+//		tweet1.setHashtags(Arrays.asList(hashtag1, hashtag2));
+//		tweetRepository.saveAndFlush(tweet1);
+//
+//		// --- Start Tweet 2 ---
+//		Tweet tweet2 = new Tweet();
+//		tweet2.setAuthor(user1);
+//		tweet2.setDeleted(false);
+//		tweet2.setContent("This is some content 2");
+//		tweet2.setHashtags(Arrays.asList(hashtag1, hashtag2));
+//
+//		tweetRepository.saveAndFlush(tweet2);
+//
+//		// --- Start Tweet 3 ---
+//		Tweet tweet3 = new Tweet();
+//		tweet3.setAuthor(user2);
+//		tweet3.setDeleted(false);
+//		// Set Content @PARAM String
+//		tweet3.setContent("This is some content 3");
+//		tweet3.setHashtags(Arrays.asList(hashtag3, hashtag4));
+//		tweetRepository.saveAndFlush(tweet3);
+//
+//		// --- Start Tweet 4 ---
+//		Tweet tweet4 = new Tweet();
+//		tweet4.setAuthor(user2);
+//		tweet4.setDeleted(false);
+//		// Set Content @PARAM String
+//		tweet4.setContent("This is some content 4");
+//		tweetRepository.saveAndFlush(tweet4);
+//
+//		// --- Start Tweet 5 ---
+//		Tweet tweet5 = new Tweet();
+//		tweet5.setAuthor(user3);
+//		tweet5.setDeleted(false);
+//		// Set Content @PARAM String
+//		tweet5.setContent("This is some content 5");
+//		tweetRepository.saveAndFlush(tweet5);
+//
+//		// --- Start Tweet 6 ---
+//		Tweet tweet6 = new Tweet();
+//		tweet6.setAuthor(user3);
+//		tweet6.setDeleted(false);
+//		// Set Content @PARAM String
+//		tweet6.setContent("This is some content 6");
+//		tweetRepository.saveAndFlush(tweet6);
+//
+//		// --- Start Tweet 7 ---
+//		Tweet deletedTweet = new Tweet();
+//		deletedTweet.setAuthor(user3);
+//		deletedTweet.setDeleted(true);
+//		// Set Content @PARAM String
+//		deletedTweet.setContent("This is a deleted tweet (User3)");
+//		deletedTweet.setHashtags(Arrays.asList(hashtag3, hashtag4));
+//		tweetRepository.saveAndFlush(deletedTweet);
+//
+//		// ----- REPLIES -----
+//
+//		Tweet reply1 = new Tweet();
+//		reply1.setContent("This is a test reply 1");
+//
+//		Tweet reply2 = new Tweet();
+//		reply2.setContent("This is a test reply 2");
+//
+//		Tweet reply3 = new Tweet();
+//		reply3.setContent("This is a test reply 3");
+//		reply3.setInReplyTo(tweet1);
+//
+//		Tweet reply4 = new Tweet();
+//		reply4.setContent("This is a test reply 4");
+//		reply4.setInReplyTo(tweet1);
+//
+//		tweetRepository.saveAllAndFlush(Arrays.asList(reply1, reply2, reply3, reply4));
+//
+//		// ----- REPOSTS -----
+//
+//		Tweet repost1 = new Tweet();
+//		repost1.setContent("This is a repost 1");
+//		repost1.setRepostOf(tweet1);
+//
+//		Tweet repost2 = new Tweet();
+//		repost2.setContent("This is a repost 2");
+//		repost2.setRepostOf(tweet2);
+//
+//		Tweet repost3 = new Tweet();
+//		repost3.setContent("This is a repost 3");
+//		repost3.setRepostOf(tweet3);
+//
+//		Tweet repost4 = new Tweet();
+//		repost4.setContent("This is a repost 4");
+//
+//		tweetRepository.saveAllAndFlush(Arrays.asList(repost1, repost2, repost3, repost4));
+//
+//		// ----- LIST of Tweets + Adding to User# -----
+//		List<Tweet> user1Tweets = List.of(tweet1, tweet2);
+//		user1.setTweets(user1Tweets);
+//		userRepository.saveAndFlush(user1);
+//
+//		List<Tweet> user2Tweets = List.of(tweet3, tweet4);
+//		user2.setTweets(user2Tweets);
+//		userRepository.saveAndFlush(user2);
+//
+//		List<Tweet> user3Tweets = List.of(tweet5, tweet6);
+//		user3.setTweets(user3Tweets);
+//		userRepository.saveAndFlush(user3);
+//
+//		// ----- List of Liked Tweets -----
+//		user1.setLikedTweets(user3Tweets);
+//		userRepository.saveAndFlush(user1);
+//
+//		user2.setLikedTweets(user1Tweets);
+//		userRepository.saveAndFlush(user2);
+//
+//		user3.setLikedTweets(user2Tweets);
+//		userRepository.saveAndFlush(user3);
+//
+//		// ----- List of Following -----
+//		List<User> followingList = List.of(user2, user3, user4);
+//		user1.setFollowing(followingList);
+//		userRepository.saveAndFlush(user1);
+//		// ----- List of Followers -----
+//		List<User> followersList = List.of(user3, user5);
+//		user1.setFollowers(followersList);
+//		userRepository.saveAndFlush(user1);
+//
+//		// ----- Tweet Mentions -----
+//		Tweet mention1 = new Tweet();
+//		mention1.setAuthor(user2);
+//		mention1.setDeleted(false);
+//		// Set Content @PARAM String
+//		mention1.setContent("This is some content for tweet mention 1");
+//		tweetRepository.saveAndFlush(mention1);
+//		
+//
+//		// Following
+//		List<User> following_1 = List.of(user2, user3, user4, deletedUser);
+//		user1.setFollowing(following_1);
+//
+//		List<User> followers_1 = List.of(user5, deletedUser);
+//		user1.setFollowers(followers_1);
+//		userRepository.saveAndFlush(user1);
+
+	}
+}
